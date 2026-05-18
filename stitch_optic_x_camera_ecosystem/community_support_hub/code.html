@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121414;
+            color: #e2e2e2;
+        }
+        .glass-panel {
+            background: rgba(44, 44, 44, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 226, 226, 0.1);
+        }
+        .cyan-glow:hover {
+            box-shadow: 0 0 0 2px #00daf3;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#37393a",
+                      "inverse-surface": "#e2e2e2",
+                      "surface-variant": "#333535",
+                      "primary-fixed": "#e5e2e1",
+                      "on-primary-container": "#7e7d7d",
+                      "on-tertiary-container": "#008a9a",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-background": "#e2e2e2",
+                      "on-primary": "#313030",
+                      "surface-container-highest": "#333535",
+                      "on-secondary": "#303030",
+                      "error-container": "#93000a",
+                      "on-error": "#690005",
+                      "tertiary-container": "#001519",
+                      "primary-container": "#121212",
+                      "tertiary-fixed": "#9cf0ff",
+                      "surface-tint": "#c8c6c5",
+                      "surface": "#121414",
+                      "on-primary-fixed-variant": "#474646",
+                      "outline-variant": "#444748",
+                      "inverse-primary": "#5f5e5e",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "background": "#121414",
+                      "tertiary-fixed-dim": "#00daf3",
+                      "on-tertiary-fixed-variant": "#004f58",
+                      "surface-container-high": "#282a2b",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "secondary": "#c8c6c5",
+                      "tertiary": "#00daf3",
+                      "outline": "#8e9192",
+                      "primary": "#c8c6c5",
+                      "on-primary-fixed": "#1c1b1b",
+                      "secondary-fixed": "#e4e2e1",
+                      "secondary-container": "#474747",
+                      "on-tertiary-fixed": "#001f24",
+                      "inverse-on-surface": "#2f3131",
+                      "surface-container-lowest": "#0c0f0f",
+                      "on-tertiary": "#00363d",
+                      "surface-container": "#1e2020",
+                      "surface-container-low": "#1a1c1c",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#474747",
+                      "on-surface": "#e2e2e2",
+                      "surface-dim": "#121414",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#b6b5b4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin": "32px",
+                      "container-max": "1440px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-caps": ["Space Grotesk"],
+                      "body-base": ["Inter"],
+                      "data-mono": ["Space Grotesk"],
+                      "headline-xl": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body-base bg-background text-on-surface">
+<header class="fixed top-0 z-50 w-full h-16 bg-surface/95 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center px-margin">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md tracking-tight text-on-surface">OPTIC-X</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100" href="#">Workflow</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100" href="#">Explorer</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100" href="#">Roadmap</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container border border-outline-variant text-data-mono font-data-mono px-4 py-1 w-64 focus:outline-none focus:border-tertiary text-[10px]" placeholder="SEARCH DOCUMENTATION..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-1.5 text-on-surface-variant text-sm" data-icon="search">search</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-tertiary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-tertiary" data-icon="settings">settings</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a camera technician in a high-tech studio environment. The lighting is cold and clinical with cyan highlights. The background features blurred silhouettes of high-end optical instruments and cinema cameras. The mood is serious and technically authoritative, matching the dark graphite aesthetic of the interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2s0LHoUbjKt4nmsZQ2NUSlqTRQHZZqcBj2whq1o6c_AofKH3R1agwR-nPcaO6HKFyiBuge4igiIer7FBN8NbfgKA4sxjPcJMknRrqRfqJxVoP63L9OCU6uzR8efa4MGF7qhR9h0HAFd5GPZWIO6Mw2pb1QXEXHOqAlqJvt9slGltaSdSCTSAGMCscZKwwtFALROqWG33SAApVQnBeYIej_B0CPL9YCHxVAGCCUFiFl_gLN7my0BFBWTDezA2RJa0mgDeVrVDvPw"/>
+</div>
+</header>
+<aside class="flex flex-col h-screen fixed left-0 top-0 pt-16 w-64 bg-surface-container border-r border-outline-variant z-40 hidden md:flex">
+<div class="p-6 border-b border-outline-variant">
+<span class="text-label-caps font-label-caps text-on-surface-variant">OPTIC-X CONTROL</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-data-mono font-data-mono text-[10px] text-tertiary">v4.2.0 | ONLINE</span>
+</div>
+</div>
+<nav class="flex-1 py-4 overflow-y-auto">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 gap-3" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 gap-3" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="memory">memory</span>
+<span class="text-label-caps font-label-caps">Sensor Tech</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 gap-3" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="videocam">videocam</span>
+<span class="text-label-caps font-label-caps">AF Demo</span>
+</a>
+<a class="bg-surface-container-high text-tertiary border-l-2 border-tertiary flex items-center px-4 py-3 gap-3" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="forum">forum</span>
+<span class="text-label-caps font-label-caps">Community</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 gap-3" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+<span class="text-label-caps font-label-caps">Support</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full py-3 border border-tertiary text-tertiary text-label-caps font-label-caps cyan-glow transition-all duration-100">
+                START TETHERING
+            </button>
+</div>
+</aside>
+<main class="md:ml-64 pt-24 pb-16 px-margin">
+<section class="max-w-container-max mx-auto">
+<div class="mb-12">
+<span class="text-label-caps font-label-caps text-tertiary mb-2 block tracking-widest">SYSTEM ARCHIVE / SUPPORT</span>
+<h1 class="text-headline-xl font-headline-xl text-on-surface mb-6">TECHNICAL KNOWLEDGE BASE</h1>
+<div class="glass-panel p-6 flex flex-col md:flex-row gap-6 items-center">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-tertiary" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant py-4 pl-12 pr-4 text-data-mono font-data-mono text-sm focus:border-tertiary focus:ring-0" placeholder="QUERY ERROR CODES, WORKFLOWS, OR COMPONENT SPECS..." type="text"/>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-4 bg-surface-variant text-on-surface text-label-caps font-label-caps border border-outline-variant hover:bg-surface-bright">FIRMWARE</button>
+<button class="px-6 py-4 bg-surface-variant text-on-surface text-label-caps font-label-caps border border-outline-variant hover:bg-surface-bright">OPTICS</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+<div class="lg:col-span-8 space-y-4">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant border-b border-outline-variant pb-2 mb-6">CRITICAL FAQ ARCHIVE</h2>
+<div class="glass-panel group cursor-pointer overflow-hidden transition-all duration-200">
+<div class="p-6 flex justify-between items-center">
+<div class="flex items-start gap-4">
+<span class="text-data-mono font-data-mono text-tertiary text-xs opacity-50">01</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">CALIBRATING 8K SENSOR PHASE DETECTION</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary transform group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</div>
+<div class="px-6 pb-6 text-on-surface-variant font-body-base border-t border-outline-variant pt-4 hidden group-hover:block">
+                            To maintain peak AF accuracy, initialize the sensor through the Control Panel under 'Maintenance'. Ensure the lens mount is cleared of any micro-debris. The system will cycle through 244 focus points to map refractive variances.
+                        </div>
+</div>
+<div class="glass-panel group cursor-pointer overflow-hidden transition-all duration-200">
+<div class="p-6 flex justify-between items-center">
+<div class="flex items-start gap-4">
+<span class="text-data-mono font-data-mono text-tertiary text-xs opacity-50">02</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">THERMAL MANAGEMENT DURING 60P CAPTURE</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="glass-panel group cursor-pointer overflow-hidden transition-all duration-200">
+<div class="p-6 flex justify-between items-center">
+<div class="flex items-start gap-4">
+<span class="text-data-mono font-data-mono text-tertiary text-xs opacity-50">03</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">LENS METADATA SYNC VIA TETHERED LINK</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-6">
+<h2 class="text-label-caps font-label-caps text-on-surface-variant border-b border-outline-variant pb-2">SYSTEM STATUS</h2>
+<div class="glass-panel p-6 space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-data-mono font-data-mono text-[10px]">API SERVER</span>
+<span class="text-tertiary text-[10px] font-bold">OPERATIONAL</span>
+</div>
+<div class="w-full bg-surface-container h-[2px]">
+<div class="bg-tertiary h-full w-[94%]"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-data-mono font-data-mono text-[10px]">FIRMWARE NODES</span>
+<span class="text-tertiary text-[10px] font-bold">99.8% UPTIME</span>
+</div>
+<div class="w-full bg-surface-container h-[2px]">
+<div class="bg-tertiary h-full w-[99%]"></div>
+</div>
+</div>
+<div class="border border-outline-variant p-6 bg-surface-container-high">
+<h3 class="text-label-caps font-label-caps mb-4">LATEST PATCH NOTES</h3>
+<p class="text-data-mono text-[12px] text-on-surface-variant leading-relaxed">
+                            v4.2.0: Optimized RAW decompression algorithms for multi-core processing. Reduced AF latency by 12ms on prime optics.
+                        </p>
+<a class="mt-4 block text-tertiary text-[10px] font-bold tracking-widest hover:underline" href="#">VIEW FULL ARCHIVE</a>
+</div>
+</div>
+</div>
+<section class="mt-20 border-t border-outline-variant pt-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+<div>
+<span class="text-label-caps font-label-caps text-tertiary mb-2 block">USER ECOSYSTEM</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">COMMUNITY LOGS &amp; WORKFLOWS</h2>
+</div>
+<button class="bg-tertiary text-on-tertiary px-8 py-3 text-label-caps font-label-caps hover:bg-tertiary-fixed-dim transition-colors">
+                        START NEW DISCUSSION
+                    </button>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<article class="glass-panel p-8 border-l-2 border-l-tertiary">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<img class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A portrait of a digital artist in a dark studio lit by multiple computer monitors displaying complex optical charts and lens blueprints. The lighting is dominated by deep blues and graphite tones, with sharp focus on the developer's concentrated expression and high-end headphones. The overall vibe is one of intense technical focus and professional excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmDeN1iNn8x4Ln83vqDhnuswei_HbFU29Yy45fi68g-sk-VpbPqiTIW7Z7pb-PzkqIoR2esx5Y2LI3vAhSTxZphoKGy2krnMlFsYKGAzhQyjy_1V5tdsUvpuhrFlzfYJ0ViSpOfRWxqE0n9ejZbdEZAS4YRsJKxocqbsNzrnGbW7L-XJb6G1uAKOh_f7_B1-0kRyTtNeacAYArr_8o6zjHdCMh-CQN9CVcQg_0AtGwEkWzTmT5khq7kwRV0Vg2nlMej3qqvZzjFA"/>
+<div>
+<h4 class="text-data-mono font-data-mono text-on-surface text-sm">PX_ENGINEER_04</h4>
+<span class="text-data-mono font-data-mono text-[10px] text-on-surface-variant">2 HOURS AGO | OPTIC-X PRO</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="thumb_up">thumb_up</span>
+<span class="text-data-mono text-[10px]">128</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="comment">comment</span>
+<span class="text-data-mono text-[10px]">42</span>
+</div>
+</div>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3 tracking-tight">ENHANCING LOW-LIGHT DYNAMIC RANGE ON SENSOR ALPHA</h3>
+<p class="text-body-base text-on-surface-variant mb-6 max-w-4xl">
+                            We've been testing the v4.2.0 firmware update in deep shadow environments. By overriding the default gain mapping and locking the ISO at base 400, we're seeing a significant reduction in micro-noise in the 14th stop. Has anyone else noticed the bias shift towards the amber spectrum in low-key setups?
+                        </p>
+<div class="flex gap-2">
+<span class="bg-surface-variant px-3 py-1 text-data-mono text-[10px] border border-outline-variant">FIRMWARE-V4</span>
+<span class="bg-surface-variant px-3 py-1 text-data-mono text-[10px] border border-outline-variant">SENSOR-TECH</span>
+<span class="bg-surface-variant px-3 py-1 text-data-mono text-[10px] border border-outline-variant">COLOR-SCIENCE</span>
+</div>
+</article>
+<article class="glass-panel p-8">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<img class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A portrait of a professional cinematographer in a high-tech studio environment, surrounded by high-resolution monitors and camera rigs. The mood is clinical and modern, with sharp cyan backlighting. The aesthetic is focused on precision and technical mastery, using a palette of matte blacks and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtcUShjsuJGkhDGAn_QtNtR_O1qkb31QQaC8qDQdWA6Rb2xrIhBaccFP1zzbxrkPCMkw_NseEt8EL_f_fifBThcYfjFTf2QbcC5JiJOo2w1kantDH-7PCiAWJJ3LS7lwJzP5SZ7M3xF2wW0bCiAEiN35PKboJ7g9LaVS5fzUz7NFkOrd2iNoHSxLz4_WXI2vnak8XrAcdM6LJWRd-s0XwTuaZZ46axnSdZ1JP_QAF0-IT2Vx2RgaX9y3pc6cQlpRau9kxv_aGp4Q"/>
+<div>
+<h4 class="text-data-mono font-data-mono text-on-surface text-sm">LENS_ARCHITECT</h4>
+<span class="text-data-mono font-data-mono text-[10px] text-on-surface-variant">8 HOURS AGO | DEVELOPER</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="thumb_up">thumb_up</span>
+<span class="text-data-mono text-[10px]">85</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="comment">comment</span>
+<span class="text-data-mono text-[10px]">19</span>
+</div>
+</div>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3 tracking-tight">ANAMORPHIC DESQUEEZE CALIBRATION GUIDE</h3>
+<p class="text-body-base text-on-surface-variant mb-6 max-w-4xl">
+                            The new 1.8x desqueeze algorithm is now live in the Explorer module. If you're experiencing edge distortion, ensure your metadata tag is set to 'Optical-A'. I've uploaded a lookup table (LUT) for previewing the corrected stretch in real-time.
+                        </p>
+<div class="flex gap-2">
+<span class="bg-surface-variant px-3 py-1 text-data-mono text-[10px] border border-outline-variant">ANAMORPHIC</span>
+<span class="bg-surface-variant px-3 py-1 text-data-mono text-[10px] border border-outline-variant">LUT</span>
+</div>
+</article>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="px-12 py-4 border border-outline-variant text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-variant/20 hover:text-on-surface transition-all">
+                        LOAD PREVIOUS LOGS
+                    </button>
+</div>
+</section>
+</section>
+</main>
+<footer class="md:ml-64 bg-surface-container-lowest border-t border-outline-variant flex justify-between items-center w-full px-margin py-6 text-[10px] z-50">
+<span class="text-label-caps font-label-caps text-on-surface">OPTIC-X</span>
+<div class="flex gap-8">
+<span class="text-data-mono font-data-mono text-on-surface-variant">© 2024 OPTIC-X PRECISION INSTRUMENTS. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">API Docs</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Thermal Data</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Firmware Archive</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

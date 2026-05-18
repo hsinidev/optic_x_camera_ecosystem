@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPTIC-X | Admin Control Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#37393a",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-variant": "#333535",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary-container": "#7e7d7d",
+                    "on-tertiary-container": "#008a9a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-background": "#e2e2e2",
+                    "on-primary": "#313030",
+                    "surface-container-highest": "#333535",
+                    "on-secondary": "#303030",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "tertiary-container": "#001519",
+                    "primary-container": "#121212",
+                    "tertiary-fixed": "#9cf0ff",
+                    "surface-tint": "#c8c6c5",
+                    "surface": "#121414",
+                    "on-primary-fixed-variant": "#474646",
+                    "outline-variant": "#444748",
+                    "inverse-primary": "#5f5e5e",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "background": "#121414",
+                    "tertiary-fixed-dim": "#00daf3",
+                    "on-tertiary-fixed-variant": "#004f58",
+                    "surface-container-high": "#282a2b",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "secondary": "#c8c6c5",
+                    "tertiary": "#00daf3",
+                    "outline": "#8e9192",
+                    "primary": "#c8c6c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "secondary-fixed": "#e4e2e1",
+                    "secondary-container": "#474747",
+                    "on-tertiary-fixed": "#001f24",
+                    "inverse-on-surface": "#2f3131",
+                    "surface-container-lowest": "#0c0f0f",
+                    "on-tertiary": "#00363d",
+                    "surface-container": "#1e2020",
+                    "surface-container-low": "#1a1c1c",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-surface": "#e2e2e2",
+                    "surface-dim": "#121414",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-surface": "#e2e2e2",
+                    "surface-dim": "#121414",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin": "32px",
+                    "container-max": "1440px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-caps": ["Space Grotesk"],
+                    "body-base": ["Inter"],
+                    "data-mono": ["Space Grotesk"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(12, 15, 15, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .active-glow {
+            box-shadow: 0 0 10px rgba(0, 218, 243, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/95 backdrop-blur-xl dark:bg-surface/95 text-on-surface dark:text-on-surface docked full-width top-0 z-50 border-b border-outline-variant flex justify-between items-center w-full px-margin h-16 fixed">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md tracking-tight text-on-surface dark:text-on-surface">OPTIC-X</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100" href="#">Workflow</a>
+<a class="text-tertiary font-bold border-b-2 border-tertiary pb-1" href="#">Explorer</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100" href="#">Roadmap</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="bg-surface-container border border-outline-variant text-data-mono font-data-mono px-4 py-1.5 w-64 focus:outline-none focus:border-tertiary transition-all" placeholder="CMD+K TO SEARCH" type="text"/>
+<span class="absolute right-3 top-1.5 material-symbols-outlined text-outline text-sm">search</span>
+</div>
+<button class="material-symbols-outlined hover:text-tertiary transition-colors duration-100">notifications</button>
+<button class="material-symbols-outlined hover:text-tertiary transition-colors duration-100">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Professional User Profile" data-alt="A professional headshot of a systems administrator with sharp, clear lighting. The aesthetic is clean and corporate, featuring a blurred technical background with subtle blue and grey tones. The subject has a confident expression, aligning with a high-performance technical environment of a leading technology firm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaeA0df_i0sR9aS_81dkBnLK1zLhtg9uGA_S2Bt_-vEnhwCTU2Mrpp5zl5ef0cD-MmwE2qdd8rb6jhx9uUG_q_G6IfqZX3b8vziTVHcBvk-JethfXnTlO3_t3r-lj0zf-0BEweLKAasZAGQNtAs8HY2ulA5za4uMx7DzOJZTgxaKJjTCCJ4WNHOaHSAngy3Y4ZIPb9AcDHARksWUsXt4R4xqfX84ck07imoKi6hNScD_091ZsEivwMJOBGutPKMP1l2iCWlBSrAw"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-surface-container dark:bg-surface-container text-on-surface dark:text-on-surface flex flex-col h-screen fixed left-0 top-0 pt-16 docked left-0 h-full w-64 border-r border-outline-variant hidden md:flex">
+<div class="p-6 border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<div>
+<div class="text-label-caps font-label-caps text-on-surface-variant">OPTIC-X CONTROL</div>
+<div class="text-data-mono font-data-mono text-[10px] text-tertiary opacity-70">v4.2.0 | ONLINE</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4 overflow-y-auto">
+<a class="bg-surface-container-high text-tertiary border-l-2 border-tertiary flex items-center px-4 py-3 text-label-caps font-label-caps" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">memory</span> Sensor Tech
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">videocam</span> AF Demo
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">timeline</span> Roadmap
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">compare</span> Comparison
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">system_update</span> Firmware
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">help</span> Support
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 text-label-caps font-label-caps hover:text-on-surface transition-all duration-100" href="#">
+<span class="material-symbols-outlined mr-3">forum</span> Community
+            </a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<button class="w-full bg-transparent border border-tertiary text-tertiary text-label-caps font-label-caps py-3 hover:bg-tertiary/10 transition-colors active:scale-[0.98] duration-100">
+                START TETHERING
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 pb-16 px-margin">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-on-surface">System Overview</h1>
+<p class="text-body-base text-on-surface-variant mt-2">Real-time diagnostics and global fleet health.</p>
+</div>
+<div class="flex gap-2">
+<div class="glass-panel px-4 py-2 flex items-center gap-3">
+<span class="text-data-mono font-data-mono text-tertiary">UPTIME</span>
+<span class="text-data-mono font-data-mono">99.998%</span>
+</div>
+<div class="glass-panel px-4 py-2 flex items-center gap-3">
+<span class="text-data-mono font-data-mono text-tertiary">NODES</span>
+<span class="text-data-mono font-data-mono">1,429</span>
+</div>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Sensor Health Monitoring -->
+<div class="col-span-12 lg:col-span-8 glass-panel p-6 overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-label-caps font-label-caps text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">sensors</span> Sensor Health Monitoring
+                    </h2>
+<span class="text-data-mono font-data-mono text-[10px] text-outline">AUTO-REFRESH: 5S</span>
+</div>
+<div class="h-64 relative mb-6">
+<div class="absolute inset-0 flex items-end justify-between px-2 pb-2">
+<!-- Simulated Waveform -->
+<div class="w-1 bg-tertiary/40 h-1/2"></div>
+<div class="w-1 bg-tertiary/60 h-2/3"></div>
+<div class="w-1 bg-tertiary h-3/4"></div>
+<div class="w-1 bg-tertiary/30 h-1/3"></div>
+<div class="w-1 bg-tertiary/50 h-1/2"></div>
+<div class="w-1 bg-tertiary/80 h-4/5"></div>
+<div class="w-1 bg-tertiary/40 h-1/2"></div>
+<div class="w-1 bg-tertiary/60 h-2/3"></div>
+<div class="w-1 bg-tertiary/20 h-1/4"></div>
+<div class="w-1 bg-tertiary/90 h-full"></div>
+<div class="w-1 bg-tertiary/50 h-2/3"></div>
+<div class="w-1 bg-tertiary h-3/4"></div>
+<div class="w-1 bg-tertiary/40 h-1/2"></div>
+<div class="w-1 bg-tertiary/60 h-2/3"></div>
+<div class="w-1 bg-tertiary h-3/4"></div>
+<div class="w-1 bg-tertiary/30 h-1/3"></div>
+<div class="w-1 bg-tertiary/50 h-1/2"></div>
+<div class="w-1 bg-tertiary/80 h-4/5"></div>
+</div>
+<div class="absolute inset-0 border border-outline-variant/30 flex flex-col justify-between p-4 pointer-events-none">
+<div class="flex justify-between text-data-mono text-[10px] text-outline">
+<span>8000 MB/S</span>
+<span>PEAK THROUGHPUT</span>
+</div>
+<div class="flex justify-between text-data-mono text-[10px] text-outline">
+<span>0 MB/S</span>
+<span>SYSTEM IDLE</span>
+</div>
+</div>
+</div>
+<table class="w-full text-data-mono font-data-mono text-xs border-collapse">
+<thead>
+<tr class="border-b border-outline-variant text-left text-on-surface-variant">
+<th class="py-3 px-2">SENSOR_ID</th>
+<th class="py-3 px-2">STATUS</th>
+<th class="py-3 px-2">TEMP</th>
+<th class="py-3 px-2">BANDWIDTH</th>
+<th class="py-3 px-2">LATENCY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/30 hover:bg-white/5 transition-colors">
+<td class="py-3 px-2">X-PRO-001</td>
+<td class="py-3 px-2 text-tertiary">NOMINAL</td>
+<td class="py-3 px-2">34°C</td>
+<td class="py-3 px-2">6.2 GB/S</td>
+<td class="py-3 px-2">0.4 MS</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-white/5 transition-colors">
+<td class="py-3 px-2">X-PRO-002</td>
+<td class="py-3 px-2 text-tertiary">NOMINAL</td>
+<td class="py-3 px-2">38°C</td>
+<td class="py-3 px-2">5.8 GB/S</td>
+<td class="py-3 px-2">0.6 MS</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-white/5 transition-colors bg-white/2">
+<td class="py-3 px-2">X-PRO-042</td>
+<td class="py-3 px-2 text-amber-400">THROTTLED</td>
+<td class="py-3 px-2 font-bold text-white">52°C</td>
+<td class="py-3 px-2">2.1 GB/S</td>
+<td class="py-3 px-2">1.8 MS</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Firmware Management -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-panel p-6 flex-1">
+<h2 class="text-label-caps font-label-caps text-on-surface flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">system_update</span> Firmware Control
+                    </h2>
+<div class="space-y-4">
+<div class="p-4 border border-outline-variant bg-surface-container-high">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-caps font-label-caps text-tertiary">STABLE RELEASE</span>
+<span class="text-data-mono font-data-mono text-[10px] bg-white/10 px-2 py-0.5 rounded">v4.2.0</span>
+</div>
+<p class="text-data-mono font-data-mono text-[11px] text-on-surface-variant leading-relaxed">
+                                Deployment completed. 1,392 nodes successfully migrated. No regression errors detected.
+                            </p>
+</div>
+<div class="p-4 border border-outline-variant/50">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-caps font-label-caps text-on-surface">BETA BRANCH</span>
+<span class="text-data-mono font-data-mono text-[10px] text-outline">v4.3.0-BETA3</span>
+</div>
+<div class="w-full bg-outline-variant h-1 mt-4">
+<div class="bg-tertiary h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-data-mono font-data-mono text-[10px] text-outline">BUILDING...</span>
+<span class="text-data-mono font-data-mono text-[10px] text-tertiary">65%</span>
+</div>
+</div>
+<button class="w-full border border-tertiary text-tertiary text-label-caps font-label-caps py-3 hover:bg-tertiary/10 transition-colors">
+                            INITIATE DEPLOYMENT
+                        </button>
+</div>
+</div>
+<div class="glass-panel p-6 h-48 relative overflow-hidden group">
+<img alt="System Hardware Detail" class="absolute inset-0 object-cover opacity-20 grayscale transition-transform duration-700 group-hover:scale-110" data-alt="A macro close-up of high-tech circuit boards and optical sensors from a mirrorless camera system. The lighting is low-key with sharp cyan highlights catching the edges of microchips and glass elements. The aesthetic is purely technical and clinical, with a focus on precision manufacturing and advanced electronics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYX-ejhOriZDij7cvtZvhHkoMeXU36RIpKmgv3LOTsGIpOimS-IHXkcvqfYZhq7M4Z5Tm2NRDqzlt5JnaSgzloK8vg4zYvM2gZa0JCWw2Vje405YINqfdsBVpL4xaWjioEgbasYEc5bMA1VHsa10KIQCIYSQnUERNNhdXo3dCqgQBsnEMuqoo98u1ON9n22XkYTcVhDmGcoj9e56pWWEYc7v9wC0Qim1cRItq9i_bji9EP6eYEZGOHGpwTgpMfODgU21fMX5X9lg"/>
+<div class="relative z-10 flex flex-col justify-between h-full">
+<span class="text-label-caps font-label-caps text-on-surface">HARDWARE STATUS</span>
+<div class="flex items-end justify-between">
+<span class="text-headline-md font-headline-md text-white">0 FAILS</span>
+<span class="text-data-mono font-data-mono text-[10px] text-tertiary border border-tertiary px-2">VALIDATED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- User Feedback Moderation -->
+<div class="col-span-12 lg:col-span-5 glass-panel p-6">
+<h2 class="text-label-caps font-label-caps text-on-surface flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">forum</span> Community Moderation
+                </h2>
+<div class="space-y-4">
+<div class="flex gap-4 border-b border-outline-variant pb-4">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between text-data-mono font-data-mono text-xs mb-1">
+<span class="text-on-surface font-bold">@OpticalArtisan</span>
+<span class="text-outline">2m ago</span>
+</div>
+<p class="text-body-base text-xs text-on-surface-variant">Found a potential leak in the AF logic during 8K/60p recording. Logs attached below.</p>
+<div class="flex gap-3 mt-3">
+<button class="text-label-caps font-label-caps text-[10px] text-tertiary hover:underline">ESCALATE</button>
+<button class="text-label-caps font-label-caps text-[10px] text-on-surface-variant hover:text-white">DISMISS</button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 border-b border-outline-variant pb-4">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between text-data-mono font-data-mono text-xs mb-1">
+<span class="text-on-surface font-bold">@CinemaRig</span>
+<span class="text-outline">15m ago</span>
+</div>
+<p class="text-body-base text-xs text-on-surface-variant">Is there a roadmap for anamorphic desqueeze in the v4.3 firmware?</p>
+<div class="flex gap-3 mt-3">
+<button class="text-label-caps font-label-caps text-[10px] text-tertiary hover:underline">RESPOND</button>
+<button class="text-label-caps font-label-caps text-[10px] text-on-surface-variant hover:text-white">ARCHIVE</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Diagnostics -->
+<div class="col-span-12 lg:col-span-7 glass-panel p-6">
+<h2 class="text-label-caps font-label-caps text-on-surface flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">terminal</span> System Diagnostics
+                </h2>
+<div class="bg-surface-container-lowest p-4 h-64 overflow-y-auto border border-outline-variant">
+<div class="font-data-mono text-xs space-y-1">
+<div class="flex gap-3">
+<span class="text-outline">[14:02:01]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">System boot sequence initiated...</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:02:03]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">Kernel 5.15-OPTIC-X loaded successfully.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:02:05]</span>
+<span class="text-error">ERROR</span>
+<span class="text-error">Thermal sensor 042 reported out-of-range value (52°C).</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:02:06]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">Auto-balancing cooling protocol engaged.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:02:10]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">Telemetry link established with Satellite Hub B.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:05:33]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">HEVC hardware encoder initialized on secondary bus.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-outline">[14:10:01]</span>
+<span class="text-tertiary">INFO</span>
+<span class="text-on-surface-variant">Aggregated log analysis: 99% data integrity.</span>
+</div>
+<div class="animate-pulse text-tertiary">&gt; _</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<div class="flex gap-4">
+<button class="text-data-mono font-data-mono text-[10px] text-on-surface-variant border border-outline-variant px-3 py-1 hover:bg-white/5">EXPORT CSV</button>
+<button class="text-data-mono font-data-mono text-[10px] text-on-surface-variant border border-outline-variant px-3 py-1 hover:bg-white/5">CLEAR LOGS</button>
+</div>
+<span class="text-data-mono font-data-mono text-[10px] text-error flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> 1 ACTIVE WARNING
+                    </span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-on-surface-variant dark:text-on-surface-variant docked full-width bottom-0 border-t border-outline-variant flex justify-between items-center w-full px-margin py-4 text-[10px] relative z-40">
+<div class="flex items-center gap-6">
+<span class="text-label-caps font-label-caps text-on-surface">OPTIC-X</span>
+<span class="text-data-mono font-data-mono">© 2024 OPTIC-X PRECISION INSTRUMENTS. ALL RIGHTS RESERVED.</span>
+</div>
+<nav class="flex gap-4">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors duration-100 text-data-mono font-data-mono" href="#">API Docs</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors duration-100 text-data-mono font-data-mono" href="#">Thermal Data</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors duration-100 text-data-mono font-data-mono" href="#">Firmware Archive</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors duration-100 text-data-mono font-data-mono" href="#">Privacy</a>
+</nav>
+</footer>
+</body></html>

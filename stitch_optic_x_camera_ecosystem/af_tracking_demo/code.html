@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .font-headline-xl { font-family: 'Inter', sans-serif; }
+    .font-headline-md { font-family: 'Inter', sans-serif; }
+    .font-body-base { font-family: 'Inter', sans-serif; }
+    .font-data-mono { font-family: 'Space Grotesk', monospace; }
+    .font-label-caps { font-family: 'Space Grotesk', monospace; text-transform: uppercase; }
+    
+    .glass-panel {
+      background: rgba(12, 15, 15, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(44, 47, 48, 0.4);
+    }
+    
+    .af-point {
+      border: 1px solid #00daf3;
+      box-shadow: 0 0 4px rgba(0, 218, 243, 0.5);
+    }
+
+    body {
+      background-color: #121414;
+      color: #e2e2e2;
+      overflow: hidden;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#e2e2e2",
+            "tertiary-container": "#001519",
+            "on-secondary": "#303030",
+            "surface-container-highest": "#333535",
+            "surface-container-lowest": "#0c0f0f",
+            "secondary-fixed": "#e4e2e1",
+            "surface-container-high": "#282a2b",
+            "secondary": "#c8c6c5",
+            "inverse-surface": "#e2e2e2",
+            "on-primary-fixed-variant": "#474646",
+            "surface-container-low": "#1a1c1c",
+            "secondary-fixed-dim": "#c8c6c5",
+            "inverse-on-surface": "#2f3131",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#c8c6c5",
+            "on-tertiary-fixed-variant": "#004f58",
+            "surface": "#121414",
+            "tertiary": "#00daf3",
+            "on-secondary-container": "#b6b5b4",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#00363d",
+            "on-tertiary-container": "#008a9a",
+            "surface-bright": "#37393a",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#9cf0ff",
+            "on-tertiary-fixed": "#001f24",
+            "primary": "#c8c6c5",
+            "surface-tint": "#c8c6c5",
+            "primary-fixed": "#e5e2e1",
+            "on-primary-fixed": "#1c1b1b",
+            "on-surface-variant": "#c4c7c7",
+            "on-secondary-fixed": "#1b1c1c",
+            "secondary-container": "#474747",
+            "outline": "#8e9192",
+            "tertiary-fixed-dim": "#00daf3",
+            "surface-variant": "#333535",
+            "error": "#ffb4ab",
+            "on-primary": "#313030",
+            "outline-variant": "#444748",
+            "surface-dim": "#121414",
+            "on-secondary-fixed-variant": "#474747",
+            "inverse-primary": "#5f5e5e",
+            "on-surface": "#e2e2e2",
+            "background": "#121414",
+            "surface-container": "#1e2020",
+            "on-primary-container": "#7e7d7d",
+            "primary-container": "#121212"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "container-max": "1440px",
+            "margin": "32px",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "body-base": ["Inter"],
+            "data-mono": ["Space Grotesk"],
+            "label-caps": ["Space Grotesk"],
+            "headline-md": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-base">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-14 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="sensors">sensors</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface">OPTIC-X // OS 1.0</h1>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="settings_input_component">settings_input_component</span>
+</header>
+<!-- Main Viewport Content -->
+<main class="flex-grow relative overflow-hidden pt-14 pb-16">
+<!-- Edge-to-Edge Video Player Concept -->
+<div class="absolute inset-0 z-0">
+<img alt="AF Tracking Demo" class="w-full h-full object-cover grayscale contrast-125" data-alt="A high-speed cinematic action shot of a professional sprinter mid-stride on a dark track, captured with a clinical, technical aesthetic. The lighting is dramatic and low-key, highlighting the mechanical precision of human movement. The overall atmosphere is professional and authoritative, utilizing a palette of deep blacks and sharp greys. High-performance optical clarity is evident in every detail of the athlete's focused expression and muscular tension." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAWnDksMlbri9vvjkNAytk5gN0HScJWkbbIwn31a9Ewg9Brwi_mMGGuOm8NV1XKdtNFp8gZpzrE4lKiKvGl4vcjl2JAoOjdcamxKzrm9AONj8CcQal5pU-VGU4rSaSNtN-186pg8niB-YAV_yjboheyEFUWX8ESUiGZ1Ov2vgJpO8Cs00AshCTPwTmqKOI1F0gusnkjGk6NSL2coQ8GiFzh_v5ddHBIwwBPcYiAQzjGDLfng7UbDvMFLbLjnWDf56Z4mzuuEiPgA"/>
+<!-- Dark Overlay to simulate EVF / Video look -->
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<!-- HUD OVERLAY LAYER -->
+<div class="relative z-10 w-full h-full p-margin pointer-events-none flex flex-col justify-between">
+<!-- Top HUD Elements: Metrics -->
+<div class="flex justify-between items-start">
+<div class="glass-panel p-3 font-data-mono text-data-mono text-tertiary flex flex-col gap-1 border-l-2 border-l-tertiary">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+<span>LIVE TRACKING: ACTIVE</span>
+</div>
+<div class="text-[10px] text-on-surface-variant">STREAMING 60FPS / 4K</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="glass-panel px-3 py-2 font-data-mono text-data-mono text-white flex gap-4">
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-on-surface-variant">ISO</span>
+<span>800</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-on-surface-variant">S/S</span>
+<span>1/2000</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] text-on-surface-variant">F</span>
+<span>2.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center AF Points (Simulated) -->
+<div class="absolute inset-0 flex items-center justify-center">
+<!-- Target Eye Tracking Square -->
+<div class="af-point w-12 h-12 relative">
+<div class="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-tertiary"></div>
+<div class="absolute -top-1 -right-1 w-2 h-2 border-t-2 border-r-2 border-tertiary"></div>
+<div class="absolute -bottom-1 -left-1 w-2 h-2 border-b-2 border-l-2 border-tertiary"></div>
+<div class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-tertiary"></div>
+<span class="absolute inset-0 flex items-center justify-center text-tertiary text-[8px] font-data-mono">EYE-01</span>
+</div>
+<!-- Peripheral AF Cloud -->
+<div class="absolute w-64 h-48 border border-white/5 grid grid-cols-8 grid-rows-6 opacity-20">
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+<div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div><div class="border-[0.5px] border-white/20"></div>
+</div>
+</div>
+<!-- Bottom HUD Elements: Stability & Distance -->
+<div class="flex justify-between items-end pointer-events-auto">
+<div class="flex flex-col gap-2">
+<!-- Histogram Concept -->
+<div class="glass-panel w-32 h-12 p-1 flex items-end gap-[1px]">
+<div class="bg-on-surface-variant/40 w-full h-[30%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[50%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[80%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[60%]"></div>
+<div class="bg-tertiary w-full h-[90%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[70%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[40%]"></div>
+<div class="bg-on-surface-variant/40 w-full h-[20%]"></div>
+</div>
+<div class="glass-panel px-3 py-2 font-data-mono text-data-mono">
+<span class="text-tertiary">DIST:</span> 14.82m
+          </div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="glass-panel px-3 py-2 font-data-mono text-data-mono flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="timeline">timeline</span>
+<span>STABILITY: 98.4%</span>
+</div>
+<button class="bg-tertiary text-on-tertiary px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+            RECORD DATA
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-surface/90 backdrop-blur-2xl dark:bg-surface/90 border-t border-outline-variant/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="home_max">home_max</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="spec_panel">lab_panel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary border-t-2 border-tertiary py-2 bg-tertiary/5 ring-1 ring-inset ring-tertiary/30" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+</a>
+</nav>
+<!-- Side HUD elements (Compass / Orientation) -->
+<div class="fixed left-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-20 pointer-events-none">
+<div class="h-40 w-[1px] bg-outline-variant/40 relative">
+<div class="absolute top-1/4 -left-1 w-2 h-[1px] bg-tertiary"></div>
+<div class="absolute top-1/2 -left-2 w-4 h-[1px] bg-tertiary"></div>
+<div class="absolute top-3/4 -left-1 w-2 h-[1px] bg-tertiary"></div>
+</div>
+<span class="font-data-mono text-[10px] -rotate-90 text-on-surface-variant">LEVEL</span>
+</div>
+<div class="fixed right-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-20 pointer-events-none">
+<span class="font-data-mono text-[10px] rotate-90 text-on-surface-variant">BATTERY</span>
+<div class="flex flex-col gap-1">
+<div class="w-1.5 h-3 bg-tertiary"></div>
+<div class="w-1.5 h-3 bg-tertiary"></div>
+<div class="w-1.5 h-3 bg-tertiary"></div>
+<div class="w-1.5 h-3 bg-outline-variant/40"></div>
+</div>
+</div>
+</body></html>

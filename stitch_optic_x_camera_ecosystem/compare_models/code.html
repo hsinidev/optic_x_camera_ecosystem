@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(12, 15, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 10px rgba(0, 218, 243, 0.1);
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+        /* Custom scrollbar for HUD feel */
+        ::-webkit-scrollbar { width: 2px; }
+        ::-webkit-scrollbar-track { background: #121414; }
+        ::-webkit-scrollbar-thumb { background: #00daf3; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e2e2e2",
+                        "tertiary-container": "#001519",
+                        "on-secondary": "#303030",
+                        "surface-container-highest": "#333535",
+                        "surface-container-lowest": "#0c0f0f",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container-high": "#282a2b",
+                        "secondary": "#c8c6c5",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container-low": "#1a1c1c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-on-surface": "#2f3131",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "surface": "#121414",
+                        "tertiary": "#00daf3",
+                        "on-secondary-container": "#b6b5b4",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#00363d",
+                        "on-tertiary-container": "#008a9a",
+                        "surface-bright": "#37393a",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#9cf0ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#c8c6c5",
+                        "surface-tint": "#c8c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-container": "#474747",
+                        "outline": "#8e9192",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "surface-variant": "#333535",
+                        "error": "#ffb4ab",
+                        "on-primary": "#313030",
+                        "outline-variant": "#444748",
+                        "surface-dim": "#121414",
+                        "on-secondary-fixed-variant": "#474747",
+                        "inverse-primary": "#5f5e5e",
+                        "on-surface": "#e2e2e2",
+                        "background": "#121414",
+                        "surface-container": "#1e2020",
+                        "on-primary-container": "#7e7d7d",
+                        "primary-container": "#121212"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-max": "1440px",
+                        "margin": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "body-base": ["Inter"],
+                        "data-mono": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-base selection:bg-tertiary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-14 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">sensors</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">OPTIC-X // OS 1.0</span>
+</div>
+<button class="active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined text-tertiary">settings_input_component</span>
+</button>
+</header>
+<main class="pt-14 pb-24 min-h-screen">
+<!-- Hero Comparison Section -->
+<section class="grid grid-cols-2 gap-[1px] bg-outline-variant/20 border-b border-outline-variant/20">
+<div class="p-4 bg-surface flex flex-col items-center">
+<div class="relative w-full aspect-[3/4] mb-4">
+<img class="w-full h-full object-cover" data-alt="A high-end, futuristic mirrorless camera body in matte graphite black, isolated against a dark, moody background with subtle cyan rim lighting. The lens elements reflect a technical blue glow, emphasizing the precision engineering and technical authority of the Optic-X brand. The aesthetic is clinical and high-performance, with sharp edges and a minimalist form factor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2p4rA5Pxtn6IXlbY27w70J3GdPpiDSkVgjhhNhy8WtcwsAweq2xcvkbe7hD8ulHNVSbQ9T-2vfbjgDTFVuAkWnbgEC6zVXilByhB3B2j3TDFeI98oWo5t2UmV7q_renbY8Om7bYhXY9cX1ET5FYWB7z8MEpkPm-hIIbzqIUUbz0QC5rq0BZSmGM-tOJlTMoxbgZfWOuhK4SL6NyCnQAPUzHyP13tnogdrkOkd0Im1PlXyOj-ON0UEvEMX1P2qgWdZ4euo5vmzw"/>
+<div class="absolute top-2 left-2 px-2 py-1 glass-panel border border-tertiary/30">
+<span class="font-data-mono text-[10px] text-tertiary uppercase">Active Unit</span>
+</div>
+</div>
+<h2 class="font-headline-md text-center text-on-surface">Optic-X Flagship</h2>
+<p class="font-data-mono text-label-caps text-outline mt-1">S-TIER PRECISION</p>
+</div>
+<div class="p-4 bg-surface flex flex-col items-center opacity-60">
+<div class="relative w-full aspect-[3/4] mb-4 grayscale">
+<img class="w-full h-full object-cover" data-alt="A professional competitor camera body shown in a standard industrial design, rendered in dark shades but lacking the vibrant cyan accents of the Optic-X. The lighting is more generic, highlighting the conventional textures of the body. The mood is functional and utilitarian, serving as a visual contrast to the advanced aesthetic of the flagship model." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK9ErDgSh0Ft066cEeVG9ABImkjMM8uihbFIcgnIFfS6Ed2TGVWATXXZCcWLjeWVNCslzSgOB323h_neTPfOpW_v5NNn5DYzYbevTNan-bc5klBNxqGyZlTRfBt0IwDJ6ewyI0ylH8JNKB03oWEOFCRJtWkJhrvrtlS5kchDKnHiFdEiu4P85fe57QVpwW9Pfk9UNjXKDTO6dR0W0cDlCYwlDiNA03MGkPHWsoNajU7CfXh54AdndQk_JaeagDr70DDUNxWMlQrg"/>
+</div>
+<h2 class="font-headline-md text-center text-on-surface">Competitor Pro</h2>
+<p class="font-data-mono text-label-caps text-outline mt-1">INDUSTRY STD</p>
+</div>
+</section>
+<!-- Technical HUD Metrics -->
+<section class="px-gutter py-8 space-y-12">
+<!-- Dynamic Range HUD -->
+<div class="space-y-4">
+<div class="flex justify-between items-end border-l-2 border-tertiary pl-3">
+<div>
+<h3 class="font-label-caps text-tertiary">DYNAMIC RANGE</h3>
+<p class="font-data-mono text-headline-md text-on-surface">16.2 STOPS</p>
+</div>
+<span class="font-data-mono text-outline text-[10px]">DELTA: +1.4</span>
+</div>
+<div class="h-32 glass-panel border border-outline-variant/20 relative overflow-hidden p-2">
+<!-- HUD Grid Lines -->
+<div class="absolute inset-0 grid grid-cols-6 grid-rows-4 opacity-10 pointer-events-none">
+<div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-b border-outline"></div>
+<div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-b border-outline"></div>
+<div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-r border-b border-outline"></div><div class="border-b border-outline"></div>
+</div>
+<!-- Histogram-style visualization -->
+<div class="flex items-end h-full gap-1">
+<div class="flex-1 bg-tertiary/20 h-4/5 border-t border-tertiary"></div>
+<div class="flex-1 bg-tertiary/30 h-3/4 border-t border-tertiary"></div>
+<div class="flex-1 bg-tertiary/40 h-full border-t border-tertiary shadow-[0_-4px_10px_rgba(0,218,243,0.2)]"></div>
+<div class="flex-1 bg-outline/10 h-1/2 border-t border-outline"></div>
+<div class="flex-1 bg-outline/20 h-2/3 border-t border-outline"></div>
+<div class="flex-1 bg-outline/10 h-1/3 border-t border-outline"></div>
+</div>
+</div>
+</div>
+<!-- Burst Performance HUD -->
+<div class="space-y-4">
+<div class="flex justify-between items-end border-l-2 border-tertiary pl-3">
+<div>
+<h3 class="font-label-caps text-tertiary">BURST RATE (FPS)</h3>
+<p class="font-data-mono text-headline-md text-on-surface">120 FPS <span class="text-label-caps text-outline-variant">RAW</span></p>
+</div>
+<span class="font-data-mono text-outline text-[10px]">READOUT: 2.1ms</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 border border-tertiary/20 flex flex-col justify-center items-center gap-2">
+<span class="font-data-mono text-label-caps text-tertiary">OPTIC-X</span>
+<div class="w-16 h-16 rounded-full border-2 border-tertiary flex items-center justify-center relative">
+<div class="absolute inset-0 border-4 border-tertiary/10 rounded-full animate-pulse"></div>
+<span class="font-data-mono text-headline-md">120</span>
+</div>
+</div>
+<div class="glass-panel p-4 border border-outline-variant/20 flex flex-col justify-center items-center gap-2">
+<span class="font-data-mono text-label-caps text-outline">COMP-PRO</span>
+<div class="w-16 h-16 rounded-full border-2 border-outline-variant/40 flex items-center justify-center">
+<span class="font-data-mono text-headline-md text-outline">30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Thermal Performance Roadmap -->
+<div class="space-y-4">
+<div class="flex justify-between items-end border-l-2 border-tertiary pl-3">
+<div>
+<h3 class="font-label-caps text-tertiary">THERMAL ENDURANCE</h3>
+<p class="font-data-mono text-headline-md text-on-surface">UNLIMITED <span class="text-label-caps text-outline-variant">8K/60</span></p>
+</div>
+<span class="font-data-mono text-outline text-[10px]">T-SENS: 42°C MAX</span>
+</div>
+<div class="relative py-6">
+<div class="absolute left-0 top-1/2 w-full h-[1px] bg-outline-variant/30"></div>
+<div class="flex justify-between items-center relative">
+<div class="flex flex-col items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary cyan-glow"></div>
+<span class="font-data-mono text-[9px] text-tertiary">START</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="h-10 w-[1px] bg-tertiary/40"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-data-mono text-[9px] text-tertiary">30 MIN</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="h-16 w-3 bg-tertiary/20 border border-tertiary/40"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-data-mono text-[9px] text-tertiary">60 MIN</span>
+</div>
+<div class="flex flex-col items-center gap-2 opacity-30">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-data-mono text-[9px] text-error">FAIL (COMP)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Spec Comparison Table -->
+<section class="mt-8 border-t border-outline-variant/20">
+<div class="bg-surface-container-low px-gutter py-2 flex items-center gap-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-sm">database</span>
+<span class="font-data-mono text-label-caps text-on-surface">RAW SENSOR METRICS</span>
+</div>
+<div class="font-data-mono text-[12px]">
+<div class="grid grid-cols-3 border-b border-outline-variant/10">
+<div class="p-3 text-outline border-r border-outline-variant/10">SENSOR</div>
+<div class="p-3 text-tertiary border-r border-outline-variant/10">45MP BSI</div>
+<div class="p-3 text-on-surface/60">45MP FSI</div>
+</div>
+<div class="grid grid-cols-3 border-b border-outline-variant/10 bg-white/[0.02]">
+<div class="p-3 text-outline border-r border-outline-variant/10">IBIS</div>
+<div class="p-3 text-tertiary border-r border-outline-variant/10 border-l border-tertiary/30">8.5 STOPS</div>
+<div class="p-3 text-on-surface/60">5.5 STOPS</div>
+</div>
+<div class="grid grid-cols-3 border-b border-outline-variant/10">
+<div class="p-3 text-outline border-r border-outline-variant/10">CODEC</div>
+<div class="p-3 text-tertiary border-r border-outline-variant/10">X-RAW 14B</div>
+<div class="p-3 text-on-surface/60">LOG-3 10B</div>
+</div>
+<div class="grid grid-cols-3 border-b border-outline-variant/10 bg-white/[0.02]">
+<div class="p-3 text-outline border-r border-outline-variant/10">PORTS</div>
+<div class="p-3 text-tertiary border-r border-outline-variant/10">TB-4 / HDMI</div>
+<div class="p-3 text-on-surface/60">USB-C / MICRO</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10 mb-16">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">OPTIC-X</div>
+<div class="flex gap-4">
+<span class="font-data-mono text-label-caps text-outline hover:text-on-surface cursor-pointer transition-opacity duration-200">Privacy Policy</span>
+<span class="font-data-mono text-label-caps text-outline hover:text-on-surface cursor-pointer transition-opacity duration-200">Technical Specs</span>
+</div>
+<div class="font-data-mono text-label-caps text-outline text-center">© 2024 OPTIC-X PRECISION OPTICS. ALL RIGHTS RESERVED.</div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-surface/90 backdrop-blur-2xl dark:bg-surface/90 border-t border-outline-variant/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined">home_max</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary border-t-2 border-tertiary py-2 bg-tertiary/5 ring-1 ring-inset ring-tertiary/30" href="#">
+<span class="material-symbols-outlined">compare_arrows</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined">videocam</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined">timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary transition-colors" href="#">
+<span class="material-symbols-outlined">lab_panel</span>
+</a>
+</nav>
+</body></html>

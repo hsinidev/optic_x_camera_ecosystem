@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #121414;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(12, 15, 15, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(68, 71, 72, 0.3);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 218, 243, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e2e2e2",
+                        "tertiary-container": "#001519",
+                        "on-secondary": "#303030",
+                        "surface-container-highest": "#333535",
+                        "surface-container-lowest": "#0c0f0f",
+                        "secondary-fixed": "#e4e2e1",
+                        "surface-container-high": "#282a2b",
+                        "secondary": "#c8c6c5",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container-low": "#1a1c1c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-on-surface": "#2f3131",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "surface": "#121414",
+                        "tertiary": "#00daf3",
+                        "on-secondary-container": "#b6b5b4",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#00363d",
+                        "on-tertiary-container": "#008a9a",
+                        "surface-bright": "#37393a",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#9cf0ff",
+                        "on-tertiary-fixed": "#001f24",
+                        "primary": "#c8c6c5",
+                        "surface-tint": "#c8c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-container": "#474747",
+                        "outline": "#8e9192",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "surface-variant": "#333535",
+                        "error": "#ffb4ab",
+                        "on-primary": "#313030",
+                        "outline-variant": "#444748",
+                        "surface-dim": "#121414",
+                        "on-secondary-fixed-variant": "#474747",
+                        "inverse-primary": "#5f5e5e",
+                        "on-surface": "#e2e2e2",
+                        "background": "#121414",
+                        "surface-container": "#1e2020",
+                        "on-primary-container": "#7e7d7d",
+                        "primary-container": "#121212"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-max": "1440px",
+                        "margin": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "body-base": ["Inter"],
+                        "data-mono": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-base overflow-x-hidden selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-14 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="sensors">sensors</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface">OPTIC-X // OS 1.0</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-tertiary transition-colors duration-100" data-icon="settings_input_component">settings_input_component</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-md mx-auto">
+<!-- HUD Header -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-caps text-label-caps text-tertiary">ROADMAP // ECOSYSTEM</span>
+<span class="font-data-mono text-data-mono text-outline">VER. 24.08</span>
+</div>
+<div class="h-[1px] w-full bg-gradient-to-r from-tertiary to-transparent mb-6"></div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">LENS PRECISION</h2>
+<p class="text-on-surface-variant font-body-base leading-snug">Technical trajectory for the Optic-X series. Professional-grade optics optimized for high-speed sensor synchronization.</p>
+</section>
+<!-- Lens Timeline/Roadmap -->
+<div class="space-y-12 relative">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-4 top-0 bottom-0 w-[1px] bg-outline-variant/30 z-0"></div>
+<!-- Current Release Block -->
+<div class="relative z-10 pl-12">
+<div class="absolute left-3 top-2 w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#00daf3]"></div>
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block">AVAILABLE NOW // G-MASTER EQUIVALENT</span>
+<!-- Lens Card 1 -->
+<div class="glass-panel p-4 mb-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="font-data-mono text-[40px] leading-none select-none">35MM</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">35MM F1.4 PRIME</h3>
+<p class="font-data-mono text-data-mono text-tertiary mb-4">OPTIC-X // MASTER CLASS</p>
+<div class="grid grid-cols-3 gap-2 border-t border-outline-variant/20 pt-4">
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">APERTURE</span>
+<span class="block font-data-mono text-data-mono text-on-surface">f/1.4</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">ELEMENTS</span>
+<span class="block font-data-mono text-data-mono text-on-surface">14 / 11</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">WEIGHT</span>
+<span class="block font-data-mono text-data-mono text-on-surface">524G</span>
+</div>
+</div>
+</div>
+<!-- Lens Card 2 -->
+<div class="glass-panel p-4 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="font-data-mono text-[40px] leading-none select-none">85MM</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">85MM F1.2 PRIME</h3>
+<p class="font-data-mono text-data-mono text-tertiary mb-4">PORTRAIT PRECISION</p>
+<div class="grid grid-cols-3 gap-2 border-t border-outline-variant/20 pt-4">
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">APERTURE</span>
+<span class="block font-data-mono text-data-mono text-on-surface">f/1.2</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">ELEMENTS</span>
+<span class="block font-data-mono text-data-mono text-on-surface">15 / 12</span>
+</div>
+<div>
+<span class="block font-label-caps text-[10px] text-outline mb-1">WEIGHT</span>
+<span class="block font-data-mono text-data-mono text-on-surface">780G</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Future Release Block -->
+<div class="relative z-10 pl-12 opacity-80">
+<div class="absolute left-3 top-2 w-2 h-2 rounded-full border border-tertiary bg-surface"></div>
+<span class="font-label-caps text-label-caps text-outline mb-4 block">PHASE 2 // Q4 2024</span>
+<div class="space-y-4">
+<!-- Future Lens 1 -->
+<div class="border border-outline-variant/30 bg-surface-container-low p-4 relative">
+<div class="absolute top-2 right-2 px-2 py-1 bg-tertiary/10 border border-tertiary/30">
+<span class="font-label-caps text-[10px] text-tertiary">PROTOTYPING</span>
+</div>
+<h4 class="font-headline-md text-on-surface mb-0">24-70MM F2.8 ZOOM</h4>
+<p class="font-data-mono text-data-mono text-outline mt-1 italic">Status: Final Calibration</p>
+</div>
+<!-- Future Lens 2 -->
+<div class="border border-outline-variant/30 bg-surface-container-low p-4 relative">
+<div class="absolute top-2 right-2 px-2 py-1 bg-outline-variant/20 border border-outline-variant/30">
+<span class="font-label-caps text-[10px] text-outline">R&amp;D</span>
+</div>
+<h4 class="font-headline-md text-on-surface mb-0">50MM F1.2 PRIME</h4>
+<p class="font-data-mono text-data-mono text-outline mt-1 italic">Status: Optical Simulation</p>
+</div>
+</div>
+</div>
+<!-- Future Release Block 3 -->
+<div class="relative z-10 pl-12 opacity-60">
+<div class="absolute left-3 top-2 w-2 h-2 rounded-full border border-outline-variant/50 bg-surface"></div>
+<span class="font-label-caps text-label-caps text-outline mb-4 block">PHASE 3 // 2025 CONCEPT</span>
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-dashed border-outline-variant/50 p-4">
+<h4 class="font-data-mono text-on-surface text-sm">70-200MM F2.8</h4>
+</div>
+<div class="border border-dashed border-outline-variant/50 p-4">
+<h4 class="font-data-mono text-on-surface text-sm">16-35MM F4.0</h4>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs Image Section -->
+<section class="mt-16 mb-8">
+<div class="relative w-full aspect-[4/3] bg-surface-container-highest border border-outline-variant/20 overflow-hidden group">
+<img alt="Lens Optics" class="w-full h-full object-cover mix-blend-luminosity grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="A high-precision cross-section of a professional camera lens showing multi-coated glass elements in a matte black metal barrel. The lighting is dramatic, high-contrast, with cool blue highlights reflecting off the glass surfaces to convey technical authority. The aesthetic is clinical and advanced, featuring a dark monochromatic palette consistent with a heads-up display interface. Cinematic studio photography style with sharp detail and depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMMkuXr-61yMmCXxENBxDwAzkEXPWWQ7PZVY2hu-EHlWvzeW9-Qnkb1bvbFwtVtiEjGgqoFX_kc9VLK_42gOpK2-DaorXyvfpfVGcUkRdgzHg8eseX6EPGu4_ioIE1iEAIG7lwq0CS7kNrw1twJtvE9xxFdr8H7E7uRPCq_Qp7fdWZ-kfNEgE3c3muzK-eDzNGyLJBPeqwjyspY9j8zCnHl1w6o27khpX10GowCrEKGUf4R54SwqQ7xqPm87eDH7vxB4X7TFB0iw"/>
+<!-- HUD Overlay on Image -->
+<div class="absolute inset-0 scanline pointer-events-none"></div>
+<div class="absolute top-4 left-4 p-2 glass-panel border-tertiary/20">
+<span class="font-data-mono text-[10px] text-tertiary">ELEMENT CALIBRATION: ACTIVE</span>
+</div>
+<div class="absolute bottom-4 right-4 text-right">
+<span class="block font-label-caps text-[10px] text-on-surface">OPTICAL ARRAY v2.4</span>
+<span class="block font-data-mono text-[10px] text-outline">NANO-COATING LAYER 04</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col justify-between items-center gap-4 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">OPTIC-X</div>
+<div class="flex gap-4">
+<a class="font-data-mono text-label-caps text-outline hover:text-on-surface transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-data-mono text-label-caps text-outline hover:text-on-surface transition-opacity duration-200" href="#">Technical Specs</a>
+<a class="font-data-mono text-label-caps text-outline hover:text-on-surface transition-opacity duration-200" href="#">Support</a>
+</div>
+<p class="font-data-mono text-label-caps text-outline text-center">© 2024 OPTIC-X PRECISION OPTICS. ALL RIGHTS RESERVED.</p>
+</footer>
+</main>
+<!-- Navigation Drawer (Hidden initially, logic not included as per requirements) -->
+<aside class="fixed inset-y-0 left-0 z-50 flex flex-col pt-20 h-full w-80 bg-surface-container dark:bg-surface-container-low border-r border-outline-variant/20 shadow-2xl transform -translate-x-full">
+<div class="px-6 mb-8">
+<h2 class="font-headline-md text-headline-md text-tertiary">HUD SETTINGS</h2>
+</div>
+<nav class="flex flex-col">
+<a class="bg-tertiary-container/20 text-tertiary border-l-2 border-tertiary px-4 py-3 font-data-mono text-data-mono translate-x-1 transition-transform" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+<span>System Configuration</span>
+</div>
+</a>
+<a class="text-on-surface-variant px-4 py-3 font-data-mono text-data-mono hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+<span>Optics Roadmap</span>
+</div>
+</a>
+<a class="text-on-surface-variant px-4 py-3 font-data-mono text-data-mono hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span>Sensor Diagnostics</span>
+</div>
+</a>
+<a class="text-on-surface-variant px-4 py-3 font-data-mono text-data-mono hover:bg-surface-container-high hover:text-on-surface transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Firmware Archive</span>
+</div>
+</a>
+</nav>
+</aside>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-16 bg-surface/90 backdrop-blur-2xl dark:bg-surface/90 border-t border-outline-variant/20 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary" href="#">
+<span class="material-symbols-outlined" data-icon="home_max">home_max</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary" href="#">
+<span class="material-symbols-outlined" data-icon="spec_panel">lab_panel</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary border-t-2 border-tertiary py-2 bg-tertiary/5 ring-1 ring-inset ring-tertiary/30" href="#">
+<span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 py-2 hover:bg-on-surface/5 hover:text-tertiary" href="#">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+</a>
+</nav>
+</body></html>

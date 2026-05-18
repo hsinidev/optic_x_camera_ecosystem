@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#37393a",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-variant": "#333535",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary-container": "#7e7d7d",
+                    "on-tertiary-container": "#008a9a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-background": "#e2e2e2",
+                    "on-primary": "#313030",
+                    "surface-container-highest": "#333535",
+                    "on-secondary": "#303030",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "tertiary-container": "#001519",
+                    "primary-container": "#121212",
+                    "tertiary-fixed": "#9cf0ff",
+                    "surface-tint": "#c8c6c5",
+                    "surface": "#121414",
+                    "on-primary-fixed-variant": "#474646",
+                    "outline-variant": "#444748",
+                    "inverse-primary": "#5f5e5e",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "background": "#121414",
+                    "tertiary-fixed-dim": "#00daf3",
+                    "on-tertiary-fixed-variant": "#004f58",
+                    "surface-container-high": "#282a2b",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "secondary": "#c8c6c5",
+                    "tertiary": "#00daf3",
+                    "outline": "#8e9192",
+                    "primary": "#c8c6c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "secondary-fixed": "#e4e2e1",
+                    "secondary-container": "#474747",
+                    "on-tertiary-fixed": "#001f24",
+                    "inverse-on-surface": "#2f3131",
+                    "surface-container-lowest": "#0c0f0f",
+                    "on-tertiary": "#00363d",
+                    "surface-container": "#1e2020",
+                    "surface-container-low": "#1a1c1c",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-surface": "#e2e2e2",
+                    "surface-dim": "#121414",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#b6b5b4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin": "32px",
+                    "container-max": "1440px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-caps": ["Space Grotesk"],
+                    "body-base": ["Inter"],
+                    "data-mono": ["Space Grotesk"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .glass-panel {
+            background: rgba(44, 44, 44, 0.15);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .af-bracket {
+            border: 1px solid #00daf3;
+            box-shadow: 0 0 8px rgba(0, 218, 243, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base overflow-hidden">
+<!-- TopAppBar Shell -->
+<header class="bg-surface/95 backdrop-blur-xl dark:bg-surface/95 text-on-surface dark:text-on-surface docked full-width top-0 z-50 border-b border-outline-variant flex justify-between items-center w-full px-margin h-16 fixed">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md tracking-tight text-on-surface dark:text-on-surface">OPTIC-X</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100 text-label-caps font-label-caps" href="#">Workflow</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-100 text-label-caps font-label-caps" href="#">Explorer</a>
+<a class="text-tertiary font-bold border-b-2 border-tertiary pb-1 text-label-caps font-label-caps" href="#">Roadmap</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined hover:text-tertiary transition-colors duration-100">notifications</button>
+<button class="material-symbols-outlined hover:text-tertiary transition-colors duration-100">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Professional User Profile" data-alt="A professional close-up headshot of a technical engineer in a dark, moody studio environment. The lighting is precise, with a subtle cyan rim light that aligns with a high-tech instrument aesthetic. The individual has a focused, calm expression, representing expert authority in a minimalist mirrorless camera ecosystem design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9I0K_vzRH3KLJFDs_m8TAqCKg3n2B0OHYnRTJWiVDKPwey3OktO99uLK8X8ZzTEWjsT6xcpWLjs01Y-HYmX1jVM36O4HIYC9wksy5suQOPKZI2pYuMkefRA1FYko_gGZWeVb8ebdIPbpm0LhldMtwB1AvOPnjWVg7Mt0g_m0d0a4ZNlL0Fnat3fy040HANZKUvemE377tZgMdetuStcdDBwsIkGueUjiEv6xLSzv7WV_HKiBQIaC12nGwJ7BDmMc6BKi_oLGbWg"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="bg-surface-container dark:bg-surface-container text-on-surface dark:text-on-surface docked left-0 h-full w-64 border-r border-outline-variant flex flex-col h-screen fixed left-0 top-0 pt-16 z-40">
+<div class="p-6 border-b border-outline-variant">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-1">OPTIC-X CONTROL</div>
+<div class="text-data-mono font-data-mono text-tertiary">v4.2.0 | ONLINE</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<div class="bg-surface-variant/10 text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 hover:text-on-surface transition-all duration-100 cursor-pointer">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-caps font-label-caps">Dashboard</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 hover:text-on-surface transition-all duration-100 cursor-pointer">
+<span class="material-symbols-outlined mr-3">memory</span>
+<span class="text-label-caps font-label-caps">Sensor Tech</span>
+</div>
+<div class="bg-surface-container-high text-tertiary border-l-2 border-tertiary flex items-center px-4 py-3 cursor-pointer">
+<span class="material-symbols-outlined mr-3">videocam</span>
+<span class="text-label-caps font-label-caps">AF Demo</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 hover:text-on-surface transition-all duration-100 cursor-pointer">
+<span class="material-symbols-outlined mr-3">timeline</span>
+<span class="text-label-caps font-label-caps">Roadmap</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 hover:text-on-surface transition-all duration-100 cursor-pointer">
+<span class="material-symbols-outlined mr-3">compare</span>
+<span class="text-label-caps font-label-caps">Comparison</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant/10 flex items-center px-4 py-3 hover:text-on-surface transition-all duration-100 cursor-pointer">
+<span class="material-symbols-outlined mr-3">system_update</span>
+<span class="text-label-caps font-label-caps">Firmware</span>
+</div>
+</div>
+<div class="p-4 mt-auto">
+<button class="w-full py-3 border border-tertiary text-tertiary text-label-caps font-label-caps hover:bg-tertiary hover:text-on-tertiary transition-all active:scale-[0.98]">START TETHERING</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 flex h-screen">
+<!-- Center Video Player -->
+<div class="flex-1 relative bg-black overflow-hidden group">
+<!-- Main Video Feed Simulation -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-80" data-alt="A high-fidelity cinematic video frame of a fast-moving subject, possibly a wildlife or sports scene, captured with extreme precision. The lighting is dramatic and natural, highlighting textures and micro-details. The overall aesthetic is dark and technical, suggesting high-performance optical engineering and sophisticated sensor processing in a professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY9xYTYGE6sMRR0r4YzOlnmsgODZdqlCGFMM7VFBgvyqq9OFP4f07iWQBI-0hYKPvwksCFOnYr4MPVm2kYyVhsKPaBNt-CoyN2qx1SAPRT8ZpZgkovudeRpp80Yl6MgvHzfNPTtKa9ahB2AbVU02l-BFFDbZs2hx1uvr7DQ9G8Cy_JlRzwcT29G82FfjbeHBMPK3ToGl50X70_bnrrUwhpvn6y815Yqk3YT51U60Hml2xQEXAPHgR95-nMXsuViLDVkBCr-eYEAw"/>
+</div>
+<!-- AF HUD Overlay Layers -->
+<div class="absolute inset-0 z-10 p-8 pointer-events-none">
+<!-- Top HUD Bar -->
+<div class="flex justify-between items-start">
+<div class="glass-panel border border-white/10 p-3 rounded-lg flex gap-6">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-label-caps">AF MODE</span>
+<span class="text-data-mono font-data-mono text-tertiary">EYE-DETECTION [INTEL]</span>
+</div>
+<div class="w-[1px] h-full bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-label-caps">RESOLUTION</span>
+<span class="text-data-mono font-data-mono">8K RAW / 60P</span>
+</div>
+</div>
+<div class="glass-panel border border-tertiary/30 p-3 rounded-lg flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-data-mono font-data-mono text-white">REC 00:12:45:12</span>
+</div>
+</div>
+<!-- Eye Tracking Brackets (Visual Placeholder) -->
+<div class="absolute top-[42%] left-[52%] w-12 h-12 af-bracket rounded-sm"></div>
+<div class="absolute top-[38%] left-[51%] w-4 h-4 bg-tertiary/40 rounded-full border border-tertiary"></div>
+<!-- Tracking Grid -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+<!-- Bottom HUD Controls -->
+<div class="absolute bottom-8 left-8 right-8 flex justify-between items-end">
+<div class="flex flex-col gap-4">
+<div class="glass-panel border border-white/10 p-4 rounded-xl w-64">
+<div class="flex justify-between mb-2">
+<span class="text-data-mono font-data-mono text-[10px] text-on-surface-variant">IBIS STABILITY</span>
+<span class="text-data-mono font-data-mono text-[10px] text-tertiary">98.4%</span>
+</div>
+<div class="h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[98%]"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 glass-panel border border-white/10 flex items-center justify-center hover:border-tertiary transition-colors pointer-events-auto">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</button>
+<button class="w-10 h-10 glass-panel border border-white/10 flex items-center justify-center hover:border-tertiary transition-colors pointer-events-auto">
+<span class="material-symbols-outlined text-white">stop</span>
+</button>
+<button class="w-10 h-10 glass-panel border border-white/10 flex items-center justify-center hover:border-tertiary transition-colors pointer-events-auto">
+<span class="material-symbols-outlined text-white">skip_next</span>
+</button>
+</div>
+</div>
+<div class="glass-panel border border-white/10 p-4 rounded-xl flex gap-8">
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-label-caps">SHUTTER</div>
+<div class="text-headline-md font-data-mono text-white">1/250</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-label-caps">APERTURE</div>
+<div class="text-headline-md font-data-mono text-white">f/2.8</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-label-caps">ISO</div>
+<div class="text-headline-md font-data-mono text-white">800</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Panel Metadata -->
+<div class="w-80 bg-surface-container-low border-l border-outline-variant flex flex-col">
+<div class="p-6 border-b border-outline-variant">
+<h3 class="text-label-caps font-label-caps text-on-surface mb-4">FRAME TELEMETRY</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-data-mono font-data-mono text-[12px]">
+<span class="text-on-surface-variant">TIMESTAMP</span>
+<span class="text-white">14:02:11:05</span>
+</div>
+<div class="flex justify-between items-center text-data-mono font-data-mono text-[12px]">
+<span class="text-on-surface-variant">BITRATE</span>
+<span class="text-white">1200 MBPS</span>
+</div>
+<div class="flex justify-between items-center text-data-mono font-data-mono text-[12px]">
+<span class="text-on-surface-variant">TEMP</span>
+<span class="text-white">34.2°C</span>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<div>
+<h4 class="text-[10px] font-label-caps text-tertiary mb-3 tracking-widest uppercase">AF Object Log</h4>
+<div class="space-y-2">
+<div class="p-2 border-l-2 border-tertiary bg-surface-variant/20 rounded-r text-[11px] font-data-mono">
+<div class="flex justify-between">
+<span>HUMAN_EYE_01</span>
+<span class="text-tertiary">LOCKED</span>
+</div>
+<div class="text-on-surface-variant mt-1">COORD: X.142 Y.984</div>
+</div>
+<div class="p-2 border-l-2 border-outline-variant bg-surface-variant/10 rounded-r text-[11px] font-data-mono">
+<div class="flex justify-between">
+<span>BACKGROUND_LYR_04</span>
+<span class="text-on-surface-variant">TRACKING</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] font-label-caps text-on-surface-variant mb-3 tracking-widest uppercase">Histogram</h4>
+<div class="h-24 w-full bg-black/40 rounded flex items-end px-2 pb-1 gap-[1px]">
+<div class="bg-white/40 h-1/4 w-full"></div>
+<div class="bg-white/40 h-2/4 w-full"></div>
+<div class="bg-white/40 h-3/4 w-full"></div>
+<div class="bg-white/60 h-4/4 w-full"></div>
+<div class="bg-tertiary h-2/3 w-full"></div>
+<div class="bg-white/60 h-4/5 w-full"></div>
+<div class="bg-white/40 h-2/5 w-full"></div>
+</div>
+</div>
+<div>
+<h4 class="text-[10px] font-label-caps text-on-surface-variant mb-3 tracking-widest uppercase">Audio Levels</h4>
+<div class="space-y-2">
+<div class="h-2 w-full bg-black/40 rounded overflow-hidden flex">
+<div class="h-full bg-green-500/60 w-[60%]"></div>
+<div class="h-full bg-yellow-500/60 w-[20%]"></div>
+</div>
+<div class="h-2 w-full bg-black/40 rounded overflow-hidden flex">
+<div class="h-full bg-green-500/60 w-[55%]"></div>
+<div class="h-full bg-yellow-500/60 w-[25%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer for Metadata Panel -->
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant text-[10px] font-data-mono flex justify-between">
+<span>BUFFER: 94%</span>
+<span class="text-tertiary">ENCRYPTED STREAM</span>
+</div>
+</div>
+</main>
+<!-- Global Footer Shell -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-on-surface-variant dark:text-on-surface-variant docked full-width bottom-0 border-t border-outline-variant flex justify-between items-center w-full px-margin py-4 text-[10px] fixed z-50">
+<div class="flex items-center gap-4">
+<span class="text-label-caps font-label-caps text-on-surface">OPTIC-X PRECISION INSTRUMENTS</span>
+<span>© 2024 ALL RIGHTS RESERVED.</span>
+</div>
+<div class="flex gap-6 text-data-mono font-data-mono">
+<a class="hover:text-tertiary transition-colors duration-100" href="#">API Docs</a>
+<a class="hover:text-tertiary transition-colors duration-100" href="#">Thermal Data</a>
+<a class="hover:text-tertiary transition-colors duration-100" href="#">Firmware Archive</a>
+<a class="hover:text-tertiary transition-colors duration-100" href="#">Privacy</a>
+</div>
+</footer>
+</body></html>
